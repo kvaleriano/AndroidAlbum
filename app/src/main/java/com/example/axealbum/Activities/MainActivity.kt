@@ -1,5 +1,6 @@
 package com.example.axealbum.Activities
 
+import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
@@ -32,21 +33,21 @@ class MainActivity : AppCompatActivity() {
         val landmarks = ArrayList<Landmark>()
         val memories = ArrayList<Memory>()
 
-        years.add(Year("2018", 1))
-        years.add(Year("2019", 1))
+        years.add(Year("2018", R.drawable.img_20180913_202537))
+        years.add(Year("2019", R.drawable.img_20190329_195156))
 
-        landmarks.add(getLandmark("Junio", 1, "2018"))
-        landmarks.add(getLandmark("Julio", 1, "2018"))
-        landmarks.add(getLandmark("Agosto", 1, "2018"))
-        landmarks.add(getLandmark("Septiembre", 1, "2018"))
-        landmarks.add(getLandmark("Octubre", 1, "2018"))
-        landmarks.add(getLandmark("Noviembre", 1, "2018"))
-        landmarks.add(getLandmark("Diciembre", 1, "2018"))
-        landmarks.add(getLandmark("Enero", 1, "2019"))
-        landmarks.add(getLandmark("Febrero", 1, "2019"))
-        landmarks.add(getLandmark("Marzo", 1, "2019"))
-        landmarks.add(getLandmark("Abril", 1, "2019"))
-        landmarks.add(getLandmark("Mayo", 1, "2019"))
+        landmarks.add(getLandmark("Junio", R.drawable.img_20180913_202537, "2018"))
+        landmarks.add(getLandmark("Julio", R.drawable.img_20180913_202537, "2018"))
+        landmarks.add(getLandmark("Agosto", R.drawable.img_20180913_202537, "2018"))
+        landmarks.add(getLandmark("Septiembre", R.drawable.img_20180913_202537, "2018"))
+        landmarks.add(getLandmark("Octubre", R.drawable.img_20180913_202537, "2018"))
+        landmarks.add(getLandmark("Noviembre", R.drawable.img_20180913_202537, "2018"))
+        landmarks.add(getLandmark("Diciembre", R.drawable.img_20180913_202537, "2018"))
+        landmarks.add(getLandmark("Enero", R.drawable.img_20180913_202537, "2019"))
+        landmarks.add(getLandmark("Febrero", R.drawable.img_20180913_202537, "2019"))
+        landmarks.add(getLandmark("Marzo", R.drawable.img_20180913_202537, "2019"))
+        landmarks.add(getLandmark("Abril", R.drawable.img_20180913_202537, "2019"))
+        landmarks.add(getLandmark("Mayo", R.drawable.img_20180913_202537, "2019"))
 
         insertLandmarksInDb(landmarks)
         insertMemoriesInDb(memories)
@@ -100,6 +101,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun insertMemoriesInDb(memories: List<Memory>) {
+
         val task = Runnable {
             val currentMemories = mDb?.memoryDao()?.getAll()
             currentMemories?.let {

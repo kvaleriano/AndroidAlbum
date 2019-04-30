@@ -2,7 +2,6 @@ package com.example.axealbum.Activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.example.axealbum.Data.Memory
 import com.example.axealbum.R
 
 class LandmarkActivity: AppCompatActivity() {

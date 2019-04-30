@@ -12,7 +12,7 @@ interface LandmarkDao {
     @Query("SELECT * from Landmark")
     fun getAll(): List<Landmark>
 
-    @Query("SELECT * from Landmark WHERE year == :year")
+    @Query("SELECT * from Landmark WHERE year = :year")
     fun getAllByYear(year: String): List<Landmark>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
