@@ -12,29 +12,29 @@ import com.example.axealbum.Helper.inflate
 import com.example.axealbum.R
 import de.hdodenhof.circleimageview.CircleImageView
 
-class LandmarkAdapter(private val memories: List<Landmark>): RecyclerView.Adapter<LandmarkAdapter.ViewHolder>() {
+class LandmarkAdapter(private val landmarks: List<Landmark>): RecyclerView.Adapter<LandmarkAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflatedView = parent.inflate(R.layout.row_landmark, false)
         return ViewHolder(inflatedView)
     }
 
-    override fun getItemCount() = memories.size
+    override fun getItemCount() = landmarks.size
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bindMemory(memories[position])
+        viewHolder.bindLandmark(landmarks[position])
     }
 
     class ViewHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListener {
 
-        private val memoryImageView: CircleImageView
-        private val memoryTextView: TextView
+        private val landmarkImageView: CircleImageView
+        private val landmarkTextView: TextView
         private var landmark: Landmark? = null
 
         init {
             v.setOnClickListener(this)
-            memoryImageView = v.findViewById(R.id.memoryImageView)
-            memoryTextView = v.findViewById(R.id.memoryTextView)
+            landmarkImageView = v.findViewById(R.id.landmarkImageView)
+            landmarkTextView = v.findViewById(R.id.landmarkTextView)
         }
 
         override fun onClick(view: View?) {
@@ -49,11 +49,10 @@ class LandmarkAdapter(private val memories: List<Landmark>): RecyclerView.Adapte
             }
         }
 
-        fun bindMemory(landmark: Landmark) {
+        fun bindLandmark(landmark: Landmark) {
             this.landmark = landmark
-            memoryImageView.setImageResource(landmark.image)
-            memoryTextView.text = landmark.title
+            landmarkImageView.setImageResource(landmark.image)
+            landmarkTextView.text = landmark.title
         }
     }
-
 }

@@ -12,6 +12,9 @@ interface MemoryDao {
     @Query("SELECT * from Memory")
     fun getAll(): List<Memory>
 
+    @Query("SELECT * from Memory WHERE year = :year AND landmark = :landmark")
+    fun getAllByYearAndLandmark(year: String, landmark: String): List<Memory>
+
     @Insert(onConflict = REPLACE)
     fun insert(memory: Memory)
 
