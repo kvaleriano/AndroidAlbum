@@ -1,5 +1,7 @@
 package com.example.axealbum.Adapters
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +29,7 @@ class MemoryAdapter(private val memories: List<Memory>): RecyclerView.Adapter<Me
         private val memoryImageView: ImageView
         private val titleTextView: TextView
         private val commentTextView: TextView
-        private var landmark: Memory? = null
+        private var memory: Memory? = null
 
         init {
             memoryImageView = v.findViewById(R.id.memoryImageView)
@@ -36,8 +38,13 @@ class MemoryAdapter(private val memories: List<Memory>): RecyclerView.Adapter<Me
         }
 
         fun bindMemory(memory: Memory) {
-            this.landmark = memory
-            memoryImageView.setImageResource(memory.image)
+
+            val bitmapImage = BitmapFactory.decodeResource(itemView.resources, memory.image)
+            val nh = bitmapImage.height * 512 / bitmapImage.width
+            val scaled = Bitmap.createScaledBitmap(bitmapImage, 512, nh, true)
+            this.memory = memory
+            memoryImageView.setImageBitmap(scaled)
+            //memoryImageView.setImageResource(memory.image)
             titleTextView.text = memory.title
             commentTextView.text = memory.comment
         }

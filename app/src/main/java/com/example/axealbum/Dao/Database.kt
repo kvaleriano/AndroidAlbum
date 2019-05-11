@@ -7,7 +7,7 @@ import android.content.Context
 import com.example.axealbum.Data.Landmark
 import com.example.axealbum.Data.Memory
 
-@Database(entities = arrayOf(Landmark::class, Memory::class), version = 1)
+@Database(entities = arrayOf(Landmark::class, Memory::class), version = 2)
 abstract class DataBase : RoomDatabase() {
 
     abstract fun landmarkDao(): LandmarkDao
@@ -21,6 +21,7 @@ abstract class DataBase : RoomDatabase() {
                 synchronized(DataBase::class) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                         DataBase::class.java, "axealbum.db")
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
             }

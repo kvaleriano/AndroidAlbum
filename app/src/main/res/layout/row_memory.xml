@@ -2,16 +2,14 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              android:layout_width="match_parent"
                                              android:layout_height="wrap_content"
-                                             android:layout_marginStart="15dp"
-                                             android:layout_marginEnd="15dp"
+                                             android:layout_marginBottom="15dp"
                                              xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
             android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
     <ImageView
             android:id="@+id/memoryImageView"
@@ -25,10 +23,11 @@
 
     <TextView
             android:id="@+id/commentTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:singleLine="false"
             app:layout_constraintTop_toTopOf="@id/memoryImageView"
-            app:layout_constraintLeft_toRightOf="@id/memoryImageView"
+            app:layout_constraintWidth_percent="0.25"
             app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

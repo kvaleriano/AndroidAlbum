@@ -187,12 +187,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun insertLandmarksInDb(landmarks: List<Landmark>) {
         val task = Runnable {
-            val currentLandmarks = mDb?.landmarkDao()?.getAll()
-            currentLandmarks?.let {
-                if (it.isNotEmpty()) {
-                    return@Runnable
-                }
-            }
+            mDb?.landmarkDao()?.deleteAll()
+
             for (i in 0 until landmarks.size) {
                 mDb?.landmarkDao()?.insert(landmarks[i])
             }
@@ -203,12 +199,8 @@ class MainActivity : AppCompatActivity() {
     private fun insertMemoriesInDb(memories: List<Memory>) {
 
         val task = Runnable {
-            val currentMemories = mDb?.memoryDao()?.getAll()
-            currentMemories?.let {
-                if (it.isNotEmpty()) {
-                    return@Runnable
-                }
-            }
+            mDb?.memoryDao()?.deleteAll()
+
             for (i in 0 until memories.size) {
                 mDb?.memoryDao()?.insert(memories[i])
             }

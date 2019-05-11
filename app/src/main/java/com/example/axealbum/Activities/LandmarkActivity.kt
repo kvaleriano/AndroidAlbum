@@ -3,6 +3,7 @@ package com.example.axealbum.Activities
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import com.example.axealbum.Adapters.MemoryAdapter
 import com.example.axealbum.Dao.DataBase
 import com.example.axealbum.R
@@ -19,6 +20,9 @@ class LandmarkActivity: AppCompatActivity() {
         backImageView.setOnClickListener {
             onBackPressed()
         }
+
+        val layoutManager = LinearLayoutManager(this)
+        memoriesRecyclerView.layoutManager = layoutManager
 
         mDb = DataBase.getInstance(this)
 
