@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.axealbum.Data.Memory
 import com.example.axealbum.Helper.inflate
+import com.example.axealbum.Helper.setAppFont
+import com.example.axealbum.Helper.setAppFontBold
 import com.example.axealbum.R
 
 class MemoryAdapter(private val memories: List<Memory>): RecyclerView.Adapter<MemoryAdapter.ViewHolder>() {
@@ -35,16 +37,18 @@ class MemoryAdapter(private val memories: List<Memory>): RecyclerView.Adapter<Me
             memoryImageView = v.findViewById(R.id.memoryImageView)
             titleTextView = v.findViewById(R.id.titleTextView)
             commentTextView = v.findViewById(R.id.commentTextView)
+            titleTextView.setAppFontBold()
+            commentTextView.setAppFont()
         }
 
         fun bindMemory(memory: Memory) {
 
-            val bitmapImage = BitmapFactory.decodeResource(itemView.resources, memory.image)
+            /*val bitmapImage = BitmapFactory.decodeResource(itemView.resources, memory.image)
             val nh = bitmapImage.height * 512 / bitmapImage.width
-            val scaled = Bitmap.createScaledBitmap(bitmapImage, 512, nh, true)
+            val scaled = Bitmap.createScaledBitmap(bitmapImage, 512, nh, true)*/
             this.memory = memory
-            memoryImageView.setImageBitmap(scaled)
-            //memoryImageView.setImageResource(memory.image)
+            //memoryImageView.setImageBitmap(scaled)
+            memoryImageView.setImageResource(memory.image)
             titleTextView.text = memory.title
             commentTextView.text = memory.comment
         }

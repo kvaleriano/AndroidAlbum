@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.axealbum.Activities.YearActivity
-import com.example.axealbum.Data.Memory
 import com.example.axealbum.Data.Year
 import com.example.axealbum.Helper.inflate
+import com.example.axealbum.Helper.setAppFont
+import com.example.axealbum.Helper.setAppFontBold
 import com.example.axealbum.R
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -36,6 +37,7 @@ class YearAdapter(private val years: List<Year>): RecyclerView.Adapter<YearAdapt
             v.setOnClickListener(this)
             yearImageView = v.findViewById(R.id.yearImageView)
             yearTextView = v.findViewById(R.id.yearTextView)
+            yearTextView.setAppFontBold()
         }
 
         override fun onClick(view: View?) {

@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.example.axealbum.Activities.LandmarkActivity
 import com.example.axealbum.Data.Landmark
 import com.example.axealbum.Helper.inflate
+import com.example.axealbum.Helper.setAppFontBold
 import com.example.axealbum.R
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -35,6 +36,7 @@ class LandmarkAdapter(private val landmarks: List<Landmark>): RecyclerView.Adapt
             v.setOnClickListener(this)
             landmarkImageView = v.findViewById(R.id.landmarkImageView)
             landmarkTextView = v.findViewById(R.id.landmarkTextView)
+            landmarkTextView.setAppFontBold()
         }
 
         override fun onClick(view: View?) {
